@@ -1,6 +1,8 @@
+import HelloClasse154 from "./components/HelloClasse154";
+
 function App() {
   return (
-    <h1>Hello Classe #145</h1>
-  )
+    <HelloClasse154 />
+  );
 }
 export default App;
