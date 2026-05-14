@@ -35,6 +35,15 @@ Nel template è già installato e configurato **Bootstrap 5.3.8**. Sia il CSS si
 
 Nel template è già installata e configurata **React Router 7**. `App.jsx` usa un layout route (`MainLayout`) come contenitore comune per tutte le pagine: header, outlet e footer sono già cablati. Per aggiungere una nuova pagina basta creare il file in `src/pages/` e aggiungere un `<Route>` in `App.jsx`.
 
+## Context e hook personalizzato già inclusi
+
+Il template include un esempio completo di **React Context** con il pattern hook personalizzato, applicato al tema chiaro/scuro.
+
+- `src/contexts/ThemeContext.jsx` — definisce il context e il provider `ThemeProvider`, che espone lo stato `theme` e la funzione `toggleTheme`. Un `useEffect` sincronizza il tema con l'attributo `data-bs-theme` sull'elemento `<html>`, così Bootstrap aggiorna automaticamente i colori di tutta la pagina.
+- `src/hooks/useTheme.js` — hook personalizzato che legge il context e lancia un errore descrittivo se viene usato fuori dal `ThemeProvider`. È un buon modello da seguire per tutti i context che si aggiungono al progetto.
+
+Il bottone di toggle è già presente nell'`Header` e mostra 🌙 o ☀️ in base al tema corrente.
+
 ## Struttura di base
 
 ```txt
@@ -43,6 +52,10 @@ src/
 ├── components/      # componenti riutilizzabili
 │   ├── Header.jsx
 │   └── Footer.jsx
+├── contexts/        # React context (stato globale)
+│   └── ThemeContext.jsx
+├── hooks/           # hook personalizzati
+│   └── useTheme.js
 ├── layouts/         # layout condivisi tra più pagine
 │   └── MainLayout.jsx
 ├── pages/           # una pagina = un file
