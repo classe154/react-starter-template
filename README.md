@@ -31,19 +31,31 @@ Uno starter template aiuta a:
 
 Nel template è già installato e configurato **Bootstrap 5.3.8**. Sia il CSS sia il bundle JS (con Popper) sono importati in `src/main.jsx`, quindi tutte le classi e i componenti di Bootstrap sono disponibili da subito senza dover aggiungere nulla.
 
-## Struttura di base consigliata
+## React Router già incluso
+
+Nel template è già installata e configurata **React Router 7**. `App.jsx` usa un layout route (`MainLayout`) come contenitore comune per tutte le pagine: header, outlet e footer sono già cablati. Per aggiungere una nuova pagina basta creare il file in `src/pages/` e aggiungere un `<Route>` in `App.jsx`.
+
+## Struttura di base
 
 ```txt
 src/
-├── assets/
-├── components/
-├── utils/
-├── styles/
-├── App.jsx
-└── main.jsx
+├── assets/          # immagini, font e altri file statici
+├── components/      # componenti riutilizzabili
+│   ├── Header.jsx
+│   └── Footer.jsx
+├── layouts/         # layout condivisi tra più pagine
+│   └── MainLayout.jsx
+├── pages/           # una pagina = un file
+│   ├── HomePage.jsx
+│   └── NotFound.jsx
+├── styles/          # stili globali
+│   └── index.css
+├── utils/           # funzioni di utilità
+├── App.jsx          # definizione delle route
+└── main.jsx         # punto di ingresso
 ```
 
-Questa struttura è abbastanza semplice per iniziare, ma anche abbastanza ordinata da poter crescere insieme al progetto.
+Questa struttura è pensata per crescere in modo ordinato: ogni cartella ha una responsabilità precisa e i file si trovano sempre dove ci si aspetta.
 
 ## Perché lasciare `React.StrictMode`
 
